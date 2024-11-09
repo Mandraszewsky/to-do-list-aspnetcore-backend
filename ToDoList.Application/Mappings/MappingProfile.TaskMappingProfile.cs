@@ -1,4 +1,5 @@
-﻿using ToDoList.Application.Tasks.Commands.CreateTask;
+﻿using ToDoList.Application.Dtos;
+using ToDoList.Application.Tasks.Commands.CreateTask;
 using ToDoList.Application.Tasks.Commands.UpdateTask;
 
 namespace ToDoList.Application.Mappings;
@@ -8,6 +9,9 @@ public partial class MappingProfile
     private void TaskMappingProfile()
     {
         CreateMap<CreateTaskCommand, Domain.Models.Task>();
+        CreateMap<Domain.Models.Task, CreateTaskCommand>();
+        CreateMap<Domain.Models.Task, TaskDto>();
+        CreateMap<TaskDto, Domain.Models.Task>();
         CreateMap<UpdateTaskCommand, Domain.Models.Task>()
             .ForMember(dest => dest.Id, opt => opt.Ignore())
             .ForMember(dest => dest.Title, opt =>

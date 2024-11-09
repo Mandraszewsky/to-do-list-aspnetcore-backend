@@ -8,7 +8,7 @@ public class CreateTaskHandler(IApplicationDbContext dbContext, IMapper mapper) 
 {
     public async Task<CreateTaskResult> Handle(CreateTaskCommand command, CancellationToken cancellationToken)
     {
-        var task = mapper.Map<Domain.Models.Task>(command);
+        var task = mapper.Map<Domain.Models.Task>(command.Task);
 
         dbContext.Tasks.Add(task);
         await dbContext.SaveChangesAsync(cancellationToken);
