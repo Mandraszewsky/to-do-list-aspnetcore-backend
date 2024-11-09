@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ToDoList.Application.Data;
 using ToDoList.Infrastructure.Data;
 
 namespace ToDoList.Infrastructure;
@@ -16,7 +17,7 @@ public static class DependencyInjection
             opts.UseSqlServer(connectionString);
         });
 
-        //services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
+        services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
 
         return services;
     }
