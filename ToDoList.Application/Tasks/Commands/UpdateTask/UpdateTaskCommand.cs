@@ -5,7 +5,7 @@ using ToDoList.Application.Dtos;
 namespace ToDoList.Application.Tasks.Commands.UpdateTask;
 
 public record UpdateTaskResult(bool IsSuccess);
-public record UpdateTaskCommand(TaskDto Task) : ICommand<UpdateTaskResult>;
+public record UpdateTaskCommand(UpdateTaskDto Task) : ICommand<UpdateTaskResult>;
 
 public class UpdateTaskCommandValidator : AbstractValidator<UpdateTaskCommand>
 {

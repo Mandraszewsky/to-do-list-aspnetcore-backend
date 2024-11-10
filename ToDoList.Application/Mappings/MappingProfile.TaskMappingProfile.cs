@@ -17,6 +17,9 @@ public partial class MappingProfile
         CreateMap<CreateTaskDto, Domain.Models.Task>();
         CreateMap<Domain.Models.Task, CreateTaskDto>();
 
+        CreateMap<UpdateTaskDto, Domain.Models.Task>();
+        CreateMap<Domain.Models.Task, UpdateTaskDto>();
+
         CreateMap<UpdateTaskCommand, Domain.Models.Task>()
             .ForMember(dest => dest.Id, opt => opt.Ignore())
             .ForMember(dest => dest.Title, opt =>
