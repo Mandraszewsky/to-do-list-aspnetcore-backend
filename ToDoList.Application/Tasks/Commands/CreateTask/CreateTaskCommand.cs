@@ -5,7 +5,7 @@ using ToDoList.Application.Dtos;
 namespace ToDoList.Application.Tasks.Commands.CreateTask;
 
 public record CreateTaskResult(Guid Id);
-public record CreateTaskCommand(TaskDto Task) : ICommand<CreateTaskResult>;
+public record CreateTaskCommand(CreateTaskDto Task) : ICommand<CreateTaskResult>;
 
 public class CreateTaskCommandValidator : AbstractValidator<CreateTaskCommand>
 {
