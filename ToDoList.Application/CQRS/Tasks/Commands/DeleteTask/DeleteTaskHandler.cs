@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ToDoList.Application.Data;
+using ToDoList.Application.Exceptions;
 
 namespace ToDoList.Application.CQRS.Tasks.Commands.DeleteTask;
 
@@ -10,7 +11,7 @@ public class DeleteTaskHandler(IApplicationDbContext dbContext) : ICommandHandle
         var task = await dbContext.Tasks.FirstOrDefaultAsync(a => a.Id == command.TaskId, cancellationToken);
 
         if (task is null)
-            throw new Exception("Task not found");
+            throw new TaskNotFoundException();
 
         dbContext.Tasks.Remove(task);
         await dbContext.SaveChangesAsync(cancellationToken);

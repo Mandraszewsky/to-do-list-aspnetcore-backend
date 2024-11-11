@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using ToDoList.Application.Data;
+using ToDoList.Application.Exceptions;
 
 namespace ToDoList.Application.CQRS.Tasks.Commands.UpdateTask;
 
@@ -11,7 +12,7 @@ public class UpdateTaskHandler(IApplicationDbContext dbContext, IMapper mapper) 
         var task = await dbContext.Tasks.FirstOrDefaultAsync(a => a.Id == command.Task.Id, cancellationToken);
 
         if (task is null)
-            throw new Exception("Task not found.");
+            throw new TaskNotFoundException();
 
         mapper.Map(command.Task, task);
 
