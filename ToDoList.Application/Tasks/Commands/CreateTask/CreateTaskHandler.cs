@@ -10,6 +10,8 @@ public class CreateTaskHandler(IApplicationDbContext dbContext, IMapper mapper) 
     {
         var task = mapper.Map<Domain.Models.Task>(command.Task);
 
+        task.DomainCreateEvent();
+
         dbContext.Tasks.Add(task);
         await dbContext.SaveChangesAsync(cancellationToken);
 

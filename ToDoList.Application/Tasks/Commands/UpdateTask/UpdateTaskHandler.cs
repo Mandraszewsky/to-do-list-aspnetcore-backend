@@ -16,6 +16,8 @@ public class UpdateTaskHandler(IApplicationDbContext dbContext, IMapper mapper) 
 
         mapper.Map(command.Task, task);
 
+        task.DomainUpdateEvent();
+
         dbContext.Tasks.Update(task);
         await dbContext.SaveChangesAsync(cancellationToken);
 
