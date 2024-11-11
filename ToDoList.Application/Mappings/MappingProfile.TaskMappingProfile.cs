@@ -1,6 +1,7 @@
 ﻿using ToDoList.Application.Dtos;
 using ToDoList.Application.Tasks.Commands.CreateTask;
 using ToDoList.Application.Tasks.Commands.UpdateTask;
+using ToDoList.Application.Tasks.Queries.GetFilteredTasks;
 
 namespace ToDoList.Application.Mappings;
 
@@ -19,6 +20,11 @@ public partial class MappingProfile
 
         CreateMap<UpdateTaskDto, Domain.Models.Task>();
         CreateMap<Domain.Models.Task, UpdateTaskDto>();
+
+        CreateMap<TaskFilterDto, Domain.Models.Task>();
+        CreateMap<Domain.Models.Task, TaskFilterDto>();
+
+        CreateMap<GetFilteredTaskQuery, Domain.Models.Task>();
 
         CreateMap<UpdateTaskCommand, Domain.Models.Task>()
             .ForMember(dest => dest.Id, opt => opt.Ignore())

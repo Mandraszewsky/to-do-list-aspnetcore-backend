@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ToDoList.Application.CQRS;
 using ToDoList.Application.Data;
-using ToDoList.Domain.Models;
 
 namespace ToDoList.Application.Tasks.Queries.GetFilteredTasks;
 
@@ -9,12 +8,19 @@ public class GetFilteredTaskHandler(IApplicationDbContext dbContext) : IQueryHan
 {
     public async Task<GetFilteredTasksResult> Handle(GetFilteredTaskQuery query, CancellationToken cancellationToken)
     {
+        var filterParams = query.Task;
+        var tasksAsQueryable = dbContext.Tasks.AsQueryable();
 
-        //var tasks = dbContext.Tasks.Where(x => x.UserId.Equals(query.userId)).AsQueryable();
+        if (!String.IsNullOrEmpty(filterParams.Title))
+            tasksAsQueryable = tasksAsQueryable.Where(x => x.Title.ToUpper().Contains(filterParams.Title.ToUpper()));
 
-        //tasks = tasks.Where();
+        if (!String.IsNullOrEmpty(filterParams.Summary))
+            tasksAsQueryable = tasksAsQueryable.Where(x => x.Summary.ToUpper().Contains(filterParams.Summary.ToUpper()));
 
-        var tasks = await dbContext.Tasks.ToListAsync(cancellationToken);
+        if (!String.IsNullOrEmpty(filterParams.DueDate))
+            tasksAsQueryable = tasksAsQueryable.Where(x => x.DueDate >= DateTime.Parse(filterParams.DueDate));
+
+        var tasks = await tasksAsQueryable.ToListAsync();
 
         var response = new GetFilteredTasksResult(tasks);
 
