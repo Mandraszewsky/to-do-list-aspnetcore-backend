@@ -1,8 +1,7 @@
 ﻿using FluentValidation;
-using ToDoList.Application.CQRS;
 using ToDoList.Application.Dtos;
 
-namespace ToDoList.Application.Tasks.Commands.CreateTask;
+namespace ToDoList.Application.CQRS.Tasks.Commands.CreateTask;
 
 public record CreateTaskResult(Guid Id);
 public record CreateTaskCommand(CreateTaskDto Task) : ICommand<CreateTaskResult>;

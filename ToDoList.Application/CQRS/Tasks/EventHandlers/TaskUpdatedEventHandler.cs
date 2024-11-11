@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Logging;
 using ToDoList.Domain.Events;
 
-namespace ToDoList.Application.Tasks.EventHandlers;
+namespace ToDoList.Application.CQRS.Tasks.EventHandlers;
 
 public class TaskUpdatedEventHandler(ILogger<TaskUpdatedEventHandler> logger) : INotificationHandler<TaskUpdatedEvent>
 {

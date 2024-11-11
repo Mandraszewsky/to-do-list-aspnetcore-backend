@@ -1,7 +1,6 @@
-﻿using ToDoList.Application.CQRS;
-using ToDoList.Application.Dtos;
+﻿using ToDoList.Application.Dtos;
 
-namespace ToDoList.Application.Tasks.Queries.GetFilteredTasks;
+namespace ToDoList.Application.CQRS.Tasks.Queries.GetFilteredTasks;
 
 public record GetFilteredTasksResult(List<Domain.Models.Task>? Tasks);
 public record GetFilteredTaskQuery(TaskFilterDto Task) : IQuery<GetFilteredTasksResult>;

@@ -1,6 +1,6 @@
 ﻿using Carter;
 using MediatR;
-using ToDoList.Application.Tasks.Commands.DeleteTask;
+using ToDoList.Application.CQRS.Tasks.Commands.DeleteTask;
 
 namespace ToDoList.API.Endpoints;
 

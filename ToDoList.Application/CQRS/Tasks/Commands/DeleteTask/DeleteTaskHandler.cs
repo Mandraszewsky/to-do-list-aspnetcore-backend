@@ -1,8 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ToDoList.Application.CQRS;
 using ToDoList.Application.Data;
 
-namespace ToDoList.Application.Tasks.Commands.DeleteTask;
+namespace ToDoList.Application.CQRS.Tasks.Commands.DeleteTask;
 
 public class DeleteTaskHandler(IApplicationDbContext dbContext) : ICommandHandler<DeleteTaskCommand, DeleteTaskResult>
 {

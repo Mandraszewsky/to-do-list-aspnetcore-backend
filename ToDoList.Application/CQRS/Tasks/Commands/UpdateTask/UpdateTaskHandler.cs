@@ -1,9 +1,8 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using ToDoList.Application.CQRS;
 using ToDoList.Application.Data;
 
-namespace ToDoList.Application.Tasks.Commands.UpdateTask;
+namespace ToDoList.Application.CQRS.Tasks.Commands.UpdateTask;
 
 public class UpdateTaskHandler(IApplicationDbContext dbContext, IMapper mapper) : ICommandHandler<UpdateTaskCommand, UpdateTaskResult>
 {

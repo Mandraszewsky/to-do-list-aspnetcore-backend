@@ -1,6 +1,6 @@
 ﻿using Carter;
 using MediatR;
-using ToDoList.Application.Tasks.Queries.GetFilteredTasks;
+using ToDoList.Application.CQRS.Tasks.Queries.GetFilteredTasks;
 
 namespace ToDoList.API.Endpoints;
 

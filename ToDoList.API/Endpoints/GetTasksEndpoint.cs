@@ -1,6 +1,6 @@
 ﻿using Carter;
 using MediatR;
-using ToDoList.Application.Tasks.Queries;
+using ToDoList.Application.CQRS.Tasks.Queries.GetTasks;
 
 namespace ToDoList.API.Endpoints;
 

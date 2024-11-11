@@ -1,8 +1,7 @@
 ﻿using FluentValidation;
-using ToDoList.Application.CQRS;
 using ToDoList.Application.Dtos;
 
-namespace ToDoList.Application.Tasks.Commands.UpdateTask;
+namespace ToDoList.Application.CQRS.Tasks.Commands.UpdateTask;
 
 public record UpdateTaskResult(bool IsSuccess);
 public record UpdateTaskCommand(UpdateTaskDto Task) : ICommand<UpdateTaskResult>;

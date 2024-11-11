@@ -1,8 +1,7 @@
 ﻿using AutoMapper;
-using ToDoList.Application.CQRS;
 using ToDoList.Application.Data;
 
-namespace ToDoList.Application.Tasks.Commands.CreateTask;
+namespace ToDoList.Application.CQRS.Tasks.Commands.CreateTask;
 
 public class CreateTaskHandler(IApplicationDbContext dbContext, IMapper mapper) : ICommandHandler<CreateTaskCommand, CreateTaskResult>
 {

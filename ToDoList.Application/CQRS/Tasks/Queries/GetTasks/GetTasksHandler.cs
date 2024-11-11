@@ -1,8 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ToDoList.Application.CQRS;
 using ToDoList.Application.Data;
 
-namespace ToDoList.Application.Tasks.Queries;
+namespace ToDoList.Application.CQRS.Tasks.Queries.GetTasks;
 
 public class GetTasksHandler(IApplicationDbContext dbContext) : IQueryHandler<GetTasksQuery, GetTasksResult>
 {

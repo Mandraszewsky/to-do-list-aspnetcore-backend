@@ -1,7 +1,6 @@
 ﻿using FluentValidation;
-using ToDoList.Application.CQRS;
 
-namespace ToDoList.Application.Tasks.Commands.DeleteTask;
+namespace ToDoList.Application.CQRS.Tasks.Commands.DeleteTask;
 
 public record DeleteTaskResult(bool IsSuccess);
 public record DeleteTaskCommand(Guid TaskId) : ICommand<DeleteTaskResult>;

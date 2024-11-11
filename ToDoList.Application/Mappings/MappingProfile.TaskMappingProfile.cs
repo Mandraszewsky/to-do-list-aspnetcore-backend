@@ -1,7 +1,7 @@
-﻿using ToDoList.Application.Dtos;
-using ToDoList.Application.Tasks.Commands.CreateTask;
-using ToDoList.Application.Tasks.Commands.UpdateTask;
-using ToDoList.Application.Tasks.Queries.GetFilteredTasks;
+﻿using ToDoList.Application.CQRS.Tasks.Commands.CreateTask;
+using ToDoList.Application.CQRS.Tasks.Commands.UpdateTask;
+using ToDoList.Application.CQRS.Tasks.Queries.GetFilteredTasks;
+using ToDoList.Application.Dtos;
 
 namespace ToDoList.Application.Mappings;
 

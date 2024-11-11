@@ -1,6 +1,6 @@
 ﻿using Carter;
 using MediatR;
-using ToDoList.Application.Tasks.Commands.UpdateTask;
+using ToDoList.Application.CQRS.Tasks.Commands.UpdateTask;
 
 namespace ToDoList.API.Endpoints;
 

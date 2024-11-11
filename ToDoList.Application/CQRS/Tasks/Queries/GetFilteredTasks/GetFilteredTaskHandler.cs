@@ -1,8 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ToDoList.Application.CQRS;
 using ToDoList.Application.Data;
 
-namespace ToDoList.Application.Tasks.Queries.GetFilteredTasks;
+namespace ToDoList.Application.CQRS.Tasks.Queries.GetFilteredTasks;
 
 public class GetFilteredTaskHandler(IApplicationDbContext dbContext) : IQueryHandler<GetFilteredTaskQuery, GetFilteredTasksResult>
 {
@@ -11,13 +10,13 @@ public class GetFilteredTaskHandler(IApplicationDbContext dbContext) : IQueryHan
         var filterParams = query.Task;
         var tasksAsQueryable = dbContext.Tasks.AsQueryable();
 
-        if (!String.IsNullOrEmpty(filterParams.Title))
+        if (!string.IsNullOrEmpty(filterParams.Title))
             tasksAsQueryable = tasksAsQueryable.Where(x => x.Title.ToUpper().Contains(filterParams.Title.ToUpper()));
 
-        if (!String.IsNullOrEmpty(filterParams.Summary))
+        if (!string.IsNullOrEmpty(filterParams.Summary))
             tasksAsQueryable = tasksAsQueryable.Where(x => x.Summary.ToUpper().Contains(filterParams.Summary.ToUpper()));
 
-        if (!String.IsNullOrEmpty(filterParams.DueDate))
+        if (!string.IsNullOrEmpty(filterParams.DueDate))
             tasksAsQueryable = tasksAsQueryable.Where(x => x.DueDate.Day == DateTime.Parse(filterParams.DueDate).Day);
 
         var tasks = await tasksAsQueryable.ToListAsync();
